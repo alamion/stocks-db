@@ -1,0 +1,1 @@
+This is simple application to store information about stocks transactions.
