@@ -1,4 +1,4 @@
-package com.github.alamion.config;
+package com.github.alamion.stocks_db.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
