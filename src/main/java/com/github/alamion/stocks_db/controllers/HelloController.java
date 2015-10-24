@@ -1,7 +1,8 @@
 package com.github.alamion.stocks_db.controllers;
 
-import com.github.alamion.stocks_db.dao.StockRepository;
-import com.github.alamion.stocks_db.model.Stock;
+import com.github.alamion.stocks_db.dao.SecurityRepository;
+import com.github.alamion.stocks_db.model.Security;
+import com.github.alamion.stocks_db.model.SecurityType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HelloController {
 
     @Autowired
-    private StockRepository stockRepository;
+    private SecurityRepository stockRepository;
 
     @RequestMapping("/hello")
     public String hello(
@@ -21,12 +22,14 @@ public class HelloController {
             Model model) {
 //        model.addAttribute("name", name);
 //        return "helloworld";
-        Stock stock = new Stock();
-        stock.setTicker("AFLT");
-        stockRepository.save(stock);
+//        Security stock = new Security();
+//        stock.setCode("AFLT");
+//        stock.setName("Аэрофлот");
+//        stock.setType(SecurityType.STOCK);
+//        stockRepository.save(stock);
 
         String stockString = "";
-        for (Stock stock1 : stockRepository.findAll())
+        for (Security stock1 : stockRepository.findAll())
         {
             stockString += stock1.toString();
             stockString += " ";
@@ -35,11 +38,11 @@ public class HelloController {
         return "helloworld";
     }
 
-    public StockRepository getStockRepository() {
+    public SecurityRepository getStockRepository() {
         return stockRepository;
     }
 
-    public void setStockRepository(StockRepository stockRepository) {
+    public void setStockRepository(SecurityRepository stockRepository) {
         this.stockRepository = stockRepository;
     }
 }
